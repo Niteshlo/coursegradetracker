@@ -1,8 +1,13 @@
 from flask import Flask
+import os
 
 
 def create_app():
-    app = Flask(__name__)
+    # Set template and static folder paths
+    template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../frontend/templates'))
+    static_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../frontend/static'))
+    
+    app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
     from routes.pages import pages_bp
     from routes.courses import courses_bp
