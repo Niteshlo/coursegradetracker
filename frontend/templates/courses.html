@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav>
+    <a href="/">Dashboard</a>
+    <a href="/courses">Courses</a>
+    <a href="/grades">Grades</a>
+    <a href="/assignments">Assignments</a>
+    <a href="/summary">Summary</a>
+</nav>
+
+<h2>Add Course</h2>
+<input id="course-name" placeholder="Course Name">
+<input id="course-credits" type="number" placeholder="Credits">
+<button onclick="addCourse()">Add</button>
+<button onclick="resetCourses()">Reset All</button>
+
+<h2>Course List</h2>
+<ul id="course-list"></ul>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>
+loadCourses();
+</script>
+</body>
+</html>

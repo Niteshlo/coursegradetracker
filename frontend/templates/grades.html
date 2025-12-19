@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grades</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav>
+    <a href="/">Dashboard</a>
+    <a href="/courses">Courses</a>
+    <a href="/grades">Grades</a>
+    <a href="/assignments">Assignments</a>
+    <a href="/summary">Summary</a>
+</nav>
+
+<h2>Add Grade</h2>
+<select id="course-select"></select>
+<input id="assignment-name" placeholder="Assignment/Exam Name">
+<select id="grade-select">
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+    <option>D</option>
+    <option>F</option>
+</select>
+<button onclick="addGrade()">Add</button>
+<button onclick="resetGrades()">Reset All</button>
+
+<h2>Grade List</h2>
+<ul id="grade-list"></ul>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>
+loadCourses();
+loadGrades();
+</script>
+</body>
+</html>

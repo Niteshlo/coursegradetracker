@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav>
+    <a href="/">Dashboard</a>
+    <a href="/courses">Courses</a>
+    <a href="/grades">Grades</a>
+    <a href="/assignments">Assignments</a>
+    <a href="/summary">Summary</a>
+</nav>
+
+<h1>Summary</h1>
+<p id="gpa">Loading GPA...</p>
+<p id="stats">Loading stats...</p>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>
+loadStats();
+</script>
+</body>
+</html>

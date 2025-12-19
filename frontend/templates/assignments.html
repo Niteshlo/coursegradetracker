@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav>
+    <a href="/">Dashboard</a>
+    <a href="/courses">Courses</a>
+    <a href="/grades">Grades</a>
+    <a href="/assignments">Assignments</a>
+    <a href="/summary">Summary</a>
+</nav>
+
+<h2>Assignments Overview</h2>
+<ul id="assignments-list"></ul>
+
+<script>
+async function loadAssignments() {
+    const res = await fetch("/api/grades");
+    const grades = await res.json();
+    const list = document.getElementById("assignments-list");
+    list.innerHTML = "";
+
+    // Group grades by course
+    const courses = {};
+    grades.forEach(g => {
+        if (!courses[g.course]) courses[g.course] = [];
+        courses[g.course].push(`${g.assignment}: ${g.grade}`);
+    });
+
+    for (const course in courses) {
+        list.innerHTML += `<li><strong>${course}</strong><ul>` +
+            courses[course].map(a => `<li>${a}</li>`).join('') +
+            `</ul></li>`;
+    }
+
+    if (grades.length === 0) {
+        list.innerHTML = "<li>No assignments/grades added yet.</li>";
+    }
+}
+
+loadAssignments();
+</script>
+</body>
+</html>
