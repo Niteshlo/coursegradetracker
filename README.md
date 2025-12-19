@@ -2,6 +2,7 @@
 
 A modern, web-based dashboard to track courses, assignments, grades, and calculate GPA.  
 Built with **Python Flask** backend and a futuristic frontend design.
+This project focuses on simplifying acedemic recoed keeping by providing a clean and useer-friendly dashboard where user can add courses, record grades, and instantly view their acedemic performance.
 
 ---
 
@@ -252,6 +253,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 👤 Author
 
 **Nitesh Kumar**
+**Akula yashank**
 
 ---
 
